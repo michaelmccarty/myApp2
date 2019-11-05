@@ -4,11 +4,13 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MewComponent } from './mew/mew.component';
+import { Mew2Component } from './mew2/mew2.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MewComponent
+    MewComponent,
+    Mew2Component
   ],
   imports: [
     BrowserModule,
