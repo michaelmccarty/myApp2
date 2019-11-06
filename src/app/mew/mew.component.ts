@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-mew',
@@ -6,15 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MewComponent implements OnInit {
 
-  test: any="hello";
-  constructor() {
-    this.test=2;
-   }
+  constructor(private http: HttpClient) {
+
+  }
 
   ngOnInit() {
   }
 
   go(){
-    console.log(this.test);
+    this.http.post("http://localhost:3000/go", {'word': 'yes'}).subscribe((data)=>{
+      console.log(data);
+    });
+    
   }
 }
