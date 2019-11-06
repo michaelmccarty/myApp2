@@ -2,7 +2,7 @@
 // ROUTING
 // ===============================================================================
 
-module.exports = function(app, db) {
+module.exports = function(app) {
   app.post("/go", function(req, res) {
     
     console.log(req.body);

@@ -16,7 +16,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Make public a static folder
-app.use(express.static("src"));
+app.use(express.static("dist"));
 
 require("./apiRoutes")(app);
 
