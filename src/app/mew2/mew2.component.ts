@@ -12,6 +12,6 @@ export class Mew2Component implements OnInit {
   }
 
   submit(){
-    alert("route me to /go");
+    console.log("route me to /go");
   }
 }

@@ -6,9 +6,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MewComponent implements OnInit {
 
-  test="before test";
+  test: any="hello";
   constructor() {
-    this.test="after test";
+    this.test=2;
    }
 
   ngOnInit() {
