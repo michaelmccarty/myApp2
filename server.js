@@ -16,10 +16,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Make public a static folder
-app.use(express.static("public"));
+app.use(express.static("src"));
 
-require("./routes/apiRoutes")(app);
-require("./routes/htmlRoutes")(app);
+require("./apiRoutes")(app);
 
 // Start the server
 app.listen(PORT, function() {
