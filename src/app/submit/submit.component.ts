@@ -12,7 +12,7 @@ export class SubmitComponent implements OnInit {
   ngOnInit() {
   }
   go() {
-    this.http.post("http://localhost:3000/go", { 'fullstack': 'yes' }).subscribe((data) => {
+    this.http.post("http://localhost:3000/api", { 'Value Added': 'yes' }).subscribe((data) => {
       console.log(data);
     });
   }

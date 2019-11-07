@@ -3,8 +3,13 @@
 // ===============================================================================
 
 module.exports = function(app, global) {
-  app.post("/go", function(req, res) {
+  app.post("/api", function(req, res) {
+
+    global.push(req.body);
     
-    console.log(global);
+    console.log(req.body);
+
+    res.send(global);
+
   });
 };
