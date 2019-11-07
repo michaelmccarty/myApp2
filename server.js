@@ -1,6 +1,8 @@
 let express = require("express");
 let logger = require("morgan");
 
+const HTTP_CONTROL_METHODS = "GET, POST, OPTIONS";
+
 
 let PORT = process.env.PORT || 3000;
 
@@ -13,7 +15,7 @@ app.use((req,res,next)=>{   //ENABLE CORS
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept"
   );
-  res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+  res.setHeader("Access-Control-Allow-Methods", HTTP_CONTROL_METHODS);
   next();
 });
 
