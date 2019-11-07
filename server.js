@@ -3,7 +3,7 @@ let logger = require("morgan");
 
 const HTTP_CONTROL_METHODS = "GET, POST, OPTIONS";
 
-let global = ["hard coded first item"];
+let global = ["hard coded first item", "and a second item"];
 
 let PORT = process.env.PORT || 3000;
 

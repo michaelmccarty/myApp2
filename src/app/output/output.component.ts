@@ -9,17 +9,20 @@ export class OutputComponent implements OnInit {
 
   output: string;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { 
+    this.output="";
+  }
 
   ngOnInit() {
 
+    
     this.http.get("http://localhost:3000/api").subscribe((data) => {
-
+      
+      
       for (let i in data){
-        console.log(data.toString());
+        this.output+=data[i].toString();
       }
 
-      //this.output=JSON.stringify(data);
     });
     
   }
