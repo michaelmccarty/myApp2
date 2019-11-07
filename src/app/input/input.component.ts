@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-input',
@@ -7,17 +7,11 @@ import { HttpClient } from '@angular/common/http';
 })
 export class InputComponent implements OnInit {
 
-  constructor(private http: HttpClient) {
+  constructor() {
 
   }
 
   ngOnInit() {
   }
-
-  go(){
-    this.http.post("http://localhost:3000/go", {'word': 'yes'}).subscribe((data)=>{
-      console.log(data);
-    });
-    
-  }
 }
+
