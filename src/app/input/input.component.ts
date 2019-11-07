@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
-  selector: 'app-mew',
-  templateUrl: './mew.component.html'
+  selector: 'app-input',
+  templateUrl: './input.component.html'
 })
-export class MewComponent implements OnInit {
+export class InputComponent implements OnInit {
 
   constructor(private http: HttpClient) {
 

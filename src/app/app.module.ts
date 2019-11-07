@@ -4,15 +4,13 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MewComponent } from './mew/mew.component';
-import { Mew2Component } from './mew2/mew2.component';
+import { MewComponent } from './input/input.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    MewComponent,
-    Mew2Component
+    InputComponent
   ],
   imports: [
     BrowserModule,
