@@ -3,8 +3,7 @@ import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-submit',
-  templateUrl: './submit.component.html',
-  styleUrls: ['./submit.component.css']
+  templateUrl: './submit.component.html'
 })
 export class SubmitComponent implements OnInit {
 

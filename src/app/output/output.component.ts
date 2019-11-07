@@ -14,7 +14,12 @@ export class OutputComponent implements OnInit {
   ngOnInit() {
 
     this.http.get("http://localhost:3000/api").subscribe((data) => {
-      this.output=JSON.stringify(data);
+
+      for (let i in data){
+        console.log(data.toString());
+      }
+
+      //this.output=JSON.stringify(data);
     });
     
   }
