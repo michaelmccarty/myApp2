@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-state',
@@ -6,9 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StateComponent implements OnInit {
 
-  constructor() { }
+  constructor(private myData: string[], private http: HttpClient) { }
 
   ngOnInit() {
+      
   }
 
 }
