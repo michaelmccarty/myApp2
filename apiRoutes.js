@@ -2,9 +2,9 @@
 // ROUTING
 // ===============================================================================
 
-module.exports = function(app) {
+module.exports = function(app, global) {
   app.post("/go", function(req, res) {
     
-    console.log(req.body);
+    console.log(global);
   });
 };

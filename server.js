@@ -3,6 +3,7 @@ let logger = require("morgan");
 
 const HTTP_CONTROL_METHODS = "GET, POST, OPTIONS";
 
+let global = ["list loaded"];
 
 let PORT = process.env.PORT || 3000;
 
@@ -30,7 +31,7 @@ app.use(express.json());
 // Make public a static folder
 app.use(express.static("dist"));
 
-require("./apiRoutes")(app);
+require("./apiRoutes")(app, global);
 
 // Start the server
 app.listen(PORT, function() {
