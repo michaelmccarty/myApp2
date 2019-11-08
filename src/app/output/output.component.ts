@@ -8,15 +8,26 @@ import { StateService } from '../state.service';
 })
 export class OutputComponent implements OnInit {
 
-  output: string;
+  output: string[];
 
   constructor(private http: HttpClient, private stateService: StateService) {
-    this.output = "";
+    
   }
 
   ngOnInit() {
 
+    this.stateService.getData().subscribe((data) => {
 
+      this.stateService.clearData();
+
+      for (let i in data) {
+        this.stateService.dataStore.push(data[i].toString());
+      }
+
+      console.log(this.stateService.dataStore);
+    }, (err) => {
+      console.log('error');
+    });
 
   }
 

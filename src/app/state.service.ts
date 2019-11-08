@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class StateService {
 
-  output: string[];
+  dataStore: string[];
   constructor(private http: HttpClient) { };
 
   getData() {
@@ -15,8 +15,21 @@ export class StateService {
 
   }
 
+  postData(toPost:string[]) {
+
+    return this.http.post("http://localhost:3000/api", toPost).subscribe((data) => {
+      this.clearData();
+    });
+
+  }
+
 
   clearData() {
-    this.output = [];
+
+
+
+    this.dataStore = [];
   }
+
+
 }
