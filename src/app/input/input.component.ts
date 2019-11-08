@@ -21,10 +21,9 @@ export class InputComponent implements OnInit {
   ship() {    //ship current value of userInput
 
     this.stateService.postData(this.userInput.value).subscribe((data) => {
-      console.log("userInput value on Ship: " + this.userInput.value);
-
+      console.log('posted: '+this.userInput.value);
     }, (err) => {
-      console.log('error');
+      console.log('error: '+ err);
     });
 
   }
