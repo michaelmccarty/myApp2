@@ -22,9 +22,10 @@ export class OutputComponent implements OnInit {
 
       for (let i in data) {
         this.stateService.dataStore.push(data[i].toString());
+        this.output.push(data[i].toString());
       }
 
-      console.log(this.stateService.dataStore);
+      console.log("Initially loaded output with: "+this.stateService.dataStore);
     }, (err) => {
       console.log('error');
     });
