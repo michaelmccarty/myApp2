@@ -7,19 +7,16 @@ import { HttpClient } from '@angular/common/http';
 export class StateService {
 
   output: string[];
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { };
 
-  getData():string[] {
+  getData() {
 
-    this.http.get("http://localhost:3000/api").subscribe((data) => {
+    return this.http.get("http://localhost:3000/api");
 
-      this.output=[];
-      for (let i in data) {
-        this.output.push(data[i].toString());
-      }
+  }
 
-      return this.output;
-    });
-    return ["an error has occurred"];
+
+  clearData() {
+    this.output = [];
   }
 }

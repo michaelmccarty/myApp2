@@ -10,14 +10,14 @@ export class OutputComponent implements OnInit {
 
   output: string;
 
-  constructor(private http: HttpClient, private stateService: StateService) { 
-    this.output="";
+  constructor(private http: HttpClient, private stateService: StateService) {
+    this.output = "";
   }
 
   ngOnInit() {
 
-    
-    
+
+
   }
 
 }
