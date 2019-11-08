@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl } from '@angular/forms';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { StateService } from '../state.service';
 
@@ -9,11 +9,12 @@ import { StateService } from '../state.service';
 })
 export class InputComponent implements OnInit {
 
+  userInput = new FormControl('data');
+
   constructor(private http: HttpClient, private stateService: StateService) { }
 
   
   ngOnInit() {
-
   }
 
 

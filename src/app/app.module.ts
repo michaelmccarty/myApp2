@@ -6,7 +6,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { InputComponent } from './input/input.component';
-import { SubmitComponent } from './submit/submit.component';
 import { OutputComponent } from './output/output.component';
 
 
@@ -14,7 +13,6 @@ import { OutputComponent } from './output/output.component';
   declarations: [
     AppComponent,
     InputComponent,
-    SubmitComponent,
     OutputComponent
   ],
   imports: [
