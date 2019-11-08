@@ -20,8 +20,8 @@ export class InputComponent implements OnInit {
 
   ship() {    //ship current value of userInput
 
-    this.stateService.postData("placeholder for userInput variable").subscribe((data) => {
-      console.log("dataStore variable after ship: " + this.stateService.dataStore);
+    this.stateService.postData(this.userInput.value).subscribe((data) => {
+      console.log("userInput value on Ship: " + this.userInput.value);
 
     }, (err) => {
       console.log('error');

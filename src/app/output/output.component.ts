@@ -16,14 +16,19 @@ export class OutputComponent implements OnInit {
 
   ngOnInit() {
 
+    
     this.stateService.getData().subscribe((data) => {
 
       this.stateService.clearData();
 
+      let temp:string[] = [];
+
       for (let i in data) {
         this.stateService.dataStore.push(data[i].toString());
-        this.output.push(data[i].toString());
+        temp.push(data[i].toString());
       }
+
+      this.output = temp;
 
       console.log("Initially loaded output with: "+this.stateService.dataStore);
     }, (err) => {

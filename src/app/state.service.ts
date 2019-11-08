@@ -17,7 +17,6 @@ export class StateService {
 
   postData(toPost:string) {
 
-    console.log("in postData method, toPost is: "+toPost);
     return this.http.post("http://localhost:3000/api", {"toPost": toPost});
 
   }
