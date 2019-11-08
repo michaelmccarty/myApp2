@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { StateService } from '../state.service';
 
 @Component({
   selector: 'app-output',
@@ -9,21 +10,13 @@ export class OutputComponent implements OnInit {
 
   output: string;
 
-  constructor(private http: HttpClient) { 
+  constructor(private http: HttpClient, private stateService: StateService) { 
     this.output="";
   }
 
   ngOnInit() {
 
     
-    this.http.get("http://localhost:3000/api").subscribe((data) => {
-      
-      
-      for (let i in data){
-        this.output+=data[i].toString();
-      }
-
-    });
     
   }
 
