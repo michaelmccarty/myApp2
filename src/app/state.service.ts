@@ -15,19 +15,15 @@ export class StateService {
 
   }
 
-  postData(toPost:string[]) {
+  postData(toPost:string) {
 
-    return this.http.post("http://localhost:3000/api", toPost).subscribe((data) => {
-      this.clearData();
-    });
+    console.log("in postData method, toPost is: "+toPost);
+    return this.http.post("http://localhost:3000/api", {"toPost": toPost});
 
   }
 
 
   clearData() {
-
-
-
     this.dataStore = [];
   }
 

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, Validators } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
+import { FormControl } from '@angular/forms';
 import { StateService } from '../state.service';
 
 @Component({
@@ -11,7 +10,7 @@ export class InputComponent implements OnInit {
 
   userInput = new FormControl('data');
 
-  constructor(private http: HttpClient, private stateService: StateService) { }
+  constructor(private stateService: StateService) { }
 
   
   ngOnInit() {
@@ -19,23 +18,15 @@ export class InputComponent implements OnInit {
 
 
 
-  ship() {
+  ship() {    //ship current value of userInput
 
+    this.stateService.postData("placeholder for userInput variable").subscribe((data) => {
+      console.log("dataStore variable after ship: " + this.stateService.dataStore);
 
-    let shippedData = [];
-
-
-    for (let i = 0; i < this.stateService.dataStore.length; i++) {
-      //console.log("pushing \"" + this.state.output[i] + "\" on to shippedData");
-      shippedData.push(this.stateService.dataStore[i]);
-    }
-
-
-
-    this.http.post("http://localhost:3000/api", shippedData).subscribe((data) => {
-      //console.log("response from server after hitting ship: " + data);
-      this.stateService.clearData();
+    }, (err) => {
+      console.log('error');
     });
+
   }
 }
 
