@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -9,12 +10,12 @@ export class LoginComponent implements OnInit {
   user: string;
   pass: string;
 
-  constructor() { }
+  constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
   }
 
-  submit(){
+  onSubmit(){
     alert("hi");
   }
 
