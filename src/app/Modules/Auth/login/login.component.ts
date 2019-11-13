@@ -13,10 +13,13 @@ export class LoginComponent implements OnInit {
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+
   }
 
-  onSubmit(){
-    alert("hi");
+  onSubmit(inputString){
+    this.user = inputString;
+
+    alert(this.user);
   }
 
 }
