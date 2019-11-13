@@ -8,6 +8,7 @@ import { DashComponent } from './dash/dash.component';
   declarations: [DashComponent],
   imports: [
     CommonModule
-  ]
+  ],
+  exports: [DashComponent]
 })
 export class MainModule { }
