@@ -1,15 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+
 import { LoginComponent } from '../Auth/login/login.component';
 
+import { AuthService } from './auth.service';
+ 
 
 @NgModule({
-  declarations: [],
+  declarations: [LoginComponent],
   imports: [
     CommonModule,
     HttpClientModule
   ],
-  bootstrap: [LoginComponent]
+  bootstrap: [LoginComponent],
+  providers: [AuthService],
+  exports: [LoginComponent]
 })
 export class AuthModule { }
