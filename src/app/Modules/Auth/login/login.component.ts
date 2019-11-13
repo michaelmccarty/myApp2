@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+//import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -10,16 +10,17 @@ export class LoginComponent implements OnInit {
   user: string;
   pass: string;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(/**private formBuilder: FormBuilder*/) { }
 
   ngOnInit() {
 
   }
 
-  onSubmit(inputString){
-    this.user = inputString;
+  onSubmit(inputName:string, inputPass: string){
+    this.user = inputName;
+    this.pass= inputPass;
 
-    alert(this.user);
+    // show Main module, hide Auth module
   }
 
 }
