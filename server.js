@@ -3,8 +3,6 @@ let logger = require("morgan");
 
 const HTTP_CONTROL_METHODS = "GET, POST, OPTIONS";
 
-let global = ["index1 string", "index2 string"];
-
 let PORT = process.env.PORT || 3000;
 
 // Initialize Express
