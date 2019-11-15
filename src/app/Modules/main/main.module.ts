@@ -5,13 +5,15 @@ import { RouterModule } from '@angular/router';
 import { UnitComponent } from './unit/unit.component';
 import { UnitsComponent } from './units/units.component';
 import { DataFormComponent } from './data-form/data-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [DashComponent, UnitComponent, UnitsComponent, DataFormComponent],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule
   ],
   exports: [DashComponent]
 })

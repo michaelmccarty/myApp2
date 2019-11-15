@@ -1,14 +1,18 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-data-form',
-  templateUrl: './data-form.component.html',
-  styleUrls: ['./data-form.component.css']
+  templateUrl: './data-form.component.html'
 })
 export class DataFormComponent implements OnInit {
 
-  constructor() { }
 
+  data= new FormControl('');
+
+  submit(){
+    
+  }
   ngOnInit() {
   }
 
