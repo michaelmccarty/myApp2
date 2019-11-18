@@ -14,4 +14,8 @@ export class DashComponent implements OnInit {
   ngOnInit() {
   }
 
+  receiveMessage($event){
+    this.data.push($event);
+  }
+
 }

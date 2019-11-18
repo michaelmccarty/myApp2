@@ -1,7 +1,7 @@
 <div class="container">
     <div class="column">
         <div class="row">
-            <app-data-form></app-data-form>
+            <app-data-form (submitEvent)="receiveMessage($event)"></app-data-form>
         </div>
         <div class="row">
             <app-units [units]="data"></app-units>
