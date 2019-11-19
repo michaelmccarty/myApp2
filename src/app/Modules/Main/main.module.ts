@@ -7,15 +7,9 @@ import { UnitsComponent } from './units/units.component';
 import { DataFormComponent } from './data-form/data-form.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
-
 @NgModule({
   declarations: [DashComponent, UnitComponent, UnitsComponent, DataFormComponent],
-  imports: [
-    CommonModule,
-    RouterModule,
-    ReactiveFormsModule,
-    FormsModule
-  ],
+  imports: [CommonModule, RouterModule, ReactiveFormsModule, FormsModule],
   exports: [DashComponent]
 })
-export class MainModule { }
+export class MainModule {}

@@ -1,7 +1,7 @@
-.unit{
-    border: 1px solid black;
-    margin-bottom: 15px;
-    width:100%;
-    width:50vw;
-    word-wrap: break-word;
+.unit {
+  border: 1px solid black;
+  margin-bottom: 15px;
+  width: 100%;
+  width: 50vw;
+  word-wrap: break-word;
 }

@@ -6,16 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dash.component.css']
 })
 export class DashComponent implements OnInit {
+  data = ['data1', 'data2'];
 
-  data=['data1','data2'];
+  constructor() {}
 
-  constructor() { }
+  ngOnInit() {}
 
-  ngOnInit() {
-  }
-
-  receiveMessage($event){
+  receiveMessage($event) {
     this.data.push($event);
   }
-
 }
