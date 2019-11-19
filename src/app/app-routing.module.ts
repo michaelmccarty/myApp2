@@ -6,7 +6,7 @@ import { DashComponent } from './Modules/Main/dash/dash.component';
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'dash', component: DashComponent },
-  { path: '',   redirectTo: '/login', pathMatch: 'full' },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: '**', redirectTo: '/login', pathMatch: 'full' }
 ];
 
@@ -14,4 +14,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
