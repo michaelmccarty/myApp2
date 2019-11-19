@@ -7,21 +7,17 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './login.component.html'
 })
 export class LoginComponent implements OnInit {
-
   user: string;
   pass: string;
 
-  constructor(/**private formBuilder: FormBuilder*/) { }
+  constructor(/**private formBuilder: FormBuilder*/) {}
 
-  ngOnInit() {
+  ngOnInit() {}
 
-  }
-
-  onSubmit(inputName:string, inputPass: string){
+  onSubmit(inputName: string, inputPass: string) {
     this.user = inputName;
-    this.pass= inputPass;
+    this.pass = inputPass;
 
     // show Main module, hide Auth module
   }
-
 }
