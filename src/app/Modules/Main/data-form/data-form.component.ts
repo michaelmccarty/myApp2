@@ -6,16 +6,11 @@ import { FormControl } from '@angular/forms';
   templateUrl: './data-form.component.html'
 })
 export class DataFormComponent implements OnInit {
+  data = new FormControl('');
+  @Output() submitEvent = new EventEmitter<string>();
 
-
-  data= new FormControl('');
-  @Output()  submitEvent = new EventEmitter<string>();
-
-  submit(){
+  submit() {
     this.submitEvent.emit(this.data.value);
-
   }
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }
