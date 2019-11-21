@@ -1,5 +1,6 @@
 let express = require('express');
 let logger = require('morgan');
+let users = [{ nick: 'test', password: 'test' }];
 
 const HTTP_CONTROL_METHODS = 'GET, POST, OPTIONS';
 
@@ -27,7 +28,7 @@ app.use(express.json());
 // Make public a static folder
 app.use(express.static('dist'));
 
-require('./apiRoutes')(app);
+require('./apiRoutes')(app, users);
 
 // Start the server
 app.listen(PORT, function() {

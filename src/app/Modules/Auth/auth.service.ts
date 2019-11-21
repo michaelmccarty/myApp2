@@ -5,18 +5,13 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class AuthService {
-  dataStore: string[];
   constructor(private http: HttpClient) {}
 
   getData() {
     return this.http.get('http://localhost:3000/api');
   }
 
-  postData(toPost: string) {
-    return this.http.post('http://localhost:3000/api', { toPost: toPost });
-  }
-
-  clearData() {
-    this.dataStore = [];
+  postData(toPost: {}) {
+    return this.http.post('http://localhost:3000/api', toPost);
   }
 }

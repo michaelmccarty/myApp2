@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../auth.service';
 
 //import { FormBuilder } from '@angular/forms';
 
@@ -7,17 +8,19 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './login.component.html'
 })
 export class LoginComponent implements OnInit {
-  user: string;
+  nick: string;
   pass: string;
 
-  constructor(/**private formBuilder: FormBuilder*/) {}
+  constructor(private authService: AuthService /**private formBuilder: FormBuilder*/) {}
 
   ngOnInit() {}
 
   onSubmit(inputName: string, inputPass: string) {
-    this.user = inputName;
+    this.nick = inputName;
     this.pass = inputPass;
 
-    // show Main module, hide Auth module
+    this.authService.postData({ nick: this.nick, pass: this.pass }).subscribe(reply => {
+      console.log(reply);
+    });
   }
 }

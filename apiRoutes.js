@@ -2,14 +2,17 @@
 // ROUTING
 // ===============================================================================
 
-module.exports = function(app, global) {
-  // app.post("/api", function (req, res) {
-  //   global.push(req.body.toPost);
-  //   console.log(global);
-  //   res.send(global);
-  // });
-  // app.get("/api", function (req, res) {
-  //   console.log(global);
-  //   res.send(global);
-  // });
+module.exports = function(app, users) {
+  app.post('/api', function(req, res) {
+    const nick = req.body.nick;
+    const pass = req.body.pass;
+
+    console.log(req.body.nick, req.body.pass);
+
+    res.send({ nick: nick, pass: pass });
+  });
+  app.get('/api', function(req, res) {
+    console.log('posted to https://localhost:3000');
+    res.end();
+  });
 };
