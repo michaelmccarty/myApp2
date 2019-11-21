@@ -28,7 +28,7 @@ app.use(express.json());
 // Make public a static folder
 app.use(express.static('dist'));
 
-require('./apiRoutes')(app, users);
+require('./auth')(app);
 
 // Start the server
 app.listen(PORT, function() {

@@ -7,9 +7,10 @@ import { RouterModule } from '@angular/router';
 import { LoginComponent } from '../Auth/login/login.component';
 
 import { AuthService } from './auth.service';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
-  declarations: [LoginComponent],
+  declarations: [LoginComponent, RegisterComponent],
   imports: [CommonModule, FormsModule, ReactiveFormsModule, HttpClientModule, RouterModule],
   bootstrap: [LoginComponent],
   providers: [AuthService],
