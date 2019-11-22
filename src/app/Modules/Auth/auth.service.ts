@@ -21,4 +21,9 @@ export class AuthService {
     this.db.auth.createUserWithEmailAndPassword(newUser.email, newUser.pass);
     return this.http.post('http://localhost:3000/register', newUser);
   }
+
+  signIn(newUser: User) {
+    this.db.auth.signInWithEmailAndPassword(newUser.email, newUser.pass);
+    return this.http.post('http://localhost:3000/login', newUser);
+  }
 }

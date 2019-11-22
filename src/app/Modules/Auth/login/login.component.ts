@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
+import { User } from '../../../Models/user.model';
 
 //import { FormBuilder } from '@angular/forms';
 
@@ -8,18 +9,16 @@ import { AuthService } from '../auth.service';
   templateUrl: './login.component.html'
 })
 export class LoginComponent implements OnInit {
-  nick: string;
-  pass: string;
+  user: User;
 
   constructor(private authService: AuthService /**private formBuilder: FormBuilder*/) {}
 
   ngOnInit() {}
 
-  onSubmit(inputName: string, inputPass: string) {
-    this.nick = inputName;
-    this.pass = inputPass;
+  onSubmit(inputEmail: string, inputPass: string) {
+    this.user = new User(inputEmail, inputPass);
 
-    this.authService.postData({ nick: this.nick, pass: this.pass }).subscribe(reply => {
+    this.authService.signIn(this.user).subscribe(reply => {
       console.log(reply);
     });
   }
