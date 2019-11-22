@@ -36,8 +36,6 @@ export class RegisterComponent implements OnInit {
         email: this.registerForm.get('email').value,
         pass: this.registerForm.get('pass').value
       })
-      .subscribe(reply => {
-        console.log(reply);
-      });
+      .subscribe();
   }
 }
