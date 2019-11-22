@@ -22,7 +22,7 @@ export class RegisterComponent implements OnInit {
       pass2: new FormControl('', [
         Validators.required,
         Validators.minLength(6),
-        pwValidator('pass')
+        pwValidator('pass') //make sure pass2 is equal to pass
       ])
     });
   }
