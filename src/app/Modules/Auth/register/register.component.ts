@@ -3,6 +3,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 
+import { pwValidator } from '../pwValidator.directive';
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html'
@@ -17,7 +19,11 @@ export class RegisterComponent implements OnInit {
       nick: new FormControl('', [Validators.required, Validators.minLength(4)]),
       email: new FormControl('', [Validators.required, Validators.email]),
       pass: new FormControl('', [Validators.required, Validators.minLength(6)]),
-      pass2: new FormControl('', [Validators.required, Validators.minLength(6)])
+      pass2: new FormControl('', [
+        Validators.required,
+        Validators.minLength(6),
+        pwValidator('pass')
+      ])
     });
   }
 
