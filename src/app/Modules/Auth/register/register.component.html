@@ -10,9 +10,10 @@
         <input type="checkbox" value="remember-me"> Remember me!
       </label>
     </div>
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
-    <p class="mt-5 mb-3 text-muted">&copy; 2019</p>
+    <button class="btn btn-lg btn-primary btn-block" [disabled]="registerForm.invalid" type="submit">Register</button>
   </form>
+
+  <p class="mt-5 mb-3 text-muted">&copy; 2019</p>
 
   <a routerLink="/dash" routerLinkActive="active">go directly to /dash</a>
 
