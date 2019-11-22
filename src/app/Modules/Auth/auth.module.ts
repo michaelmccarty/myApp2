@@ -5,12 +5,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
 import { LoginComponent } from '../Auth/login/login.component';
-
-import { AuthService } from './auth.service';
 import { RegisterComponent } from './register/register.component';
 
+import { AuthService } from './auth.service';
+
+import { CompareValidatorDirective } from './pwValidator.directive';
+
 @NgModule({
-  declarations: [LoginComponent, RegisterComponent],
+  declarations: [LoginComponent, RegisterComponent, CompareValidatorDirective],
   imports: [CommonModule, FormsModule, ReactiveFormsModule, HttpClientModule, RouterModule],
   bootstrap: [LoginComponent],
   providers: [AuthService],
