@@ -18,12 +18,22 @@ export class AuthService {
   }
 
   async registerUser(newUser: User) {
-    this.db.auth.createUserWithEmailAndPassword(newUser.email, newUser.pass);
-    //return this.http.post('http://localhost:3000/register', newUser);
+    let result = await this.db.auth
+      .createUserWithEmailAndPassword(newUser.email, newUser.pass)
+      .catch(err => {
+        console.log('register error: ' + err);
+      });
+
+    console.log('Result: ' + JSON.stringify(result));
   }
 
   async signIn(newUser: User) {
-    this.db.auth.signInWithEmailAndPassword(newUser.email, newUser.pass);
-    //return this.http.post('http://localhost:3000/login', newUser);
+    let result = await this.db.auth
+      .signInWithEmailAndPassword(newUser.email, newUser.pass)
+      .catch(err => {
+        console.log('signIn error: ' + err);
+      });
+
+    console.log('Result: ' + JSON.stringify(result));
   }
 }
