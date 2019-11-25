@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <app-data-form (submitEvent)="receiveMessage($event)"></app-data-form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <app-units [units]="data"></app-units>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <button routerLink="/login" class="btn btn-lg btn-primary btn-block" type="submit" style="margin-top: 25px">
+                to /login</button>
+        </div>
+    </div>
+</div>

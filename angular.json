@@ -3,6 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
+<<<<<<< HEAD
     "myapp3": {
       "projectType": "application",
       "schematics": {
@@ -28,6 +29,11 @@
           "skipTests": true
         }
       },
+=======
+    "myApp2": {
+      "projectType": "application",
+      "schematics": {},
+>>>>>>> 772b4145b70838af49e5ee5823a4f26f3ebde4ae
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -35,7 +41,11 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+<<<<<<< HEAD
             "outputPath": "dist/myapp3",
+=======
+            "outputPath": "dist/myApp2",
+>>>>>>> 772b4145b70838af49e5ee5823a4f26f3ebde4ae
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -46,7 +56,11 @@
               "src/assets"
             ],
             "styles": [
+<<<<<<< HEAD
               "src/styles.css"
+=======
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css"
+>>>>>>> 772b4145b70838af49e5ee5823a4f26f3ebde4ae
             ],
             "scripts": []
           },
@@ -85,18 +99,30 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
+<<<<<<< HEAD
             "browserTarget": "myapp3:build"
           },
           "configurations": {
             "production": {
               "browserTarget": "myapp3:build:production"
+=======
+            "browserTarget": "myApp2:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "myApp2:build:production"
+>>>>>>> 772b4145b70838af49e5ee5823a4f26f3ebde4ae
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
+<<<<<<< HEAD
             "browserTarget": "myapp3:build"
+=======
+            "browserTarget": "myApp2:build"
+>>>>>>> 772b4145b70838af49e5ee5823a4f26f3ebde4ae
           }
         },
         "test": {
@@ -133,15 +159,27 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
+<<<<<<< HEAD
             "devServerTarget": "myapp3:serve"
           },
           "configurations": {
             "production": {
               "devServerTarget": "myapp3:serve:production"
+=======
+            "devServerTarget": "myApp2:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "myApp2:serve:production"
+>>>>>>> 772b4145b70838af49e5ee5823a4f26f3ebde4ae
             }
           }
         }
       }
     }},
+<<<<<<< HEAD
   "defaultProject": "myapp3"
+=======
+  "defaultProject": "myApp2"
+>>>>>>> 772b4145b70838af49e5ee5823a4f26f3ebde4ae
 }

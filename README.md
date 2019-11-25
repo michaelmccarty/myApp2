@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Myapp3
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.17.
@@ -25,3 +26,11 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+=======
+# MyApp2 1.3.0
+
+## This is just a lil app living its best life... don't worry too much about it.
+
+> npm i  
+> npm start
+>>>>>>> 772b4145b70838af49e5ee5823a4f26f3ebde4ae

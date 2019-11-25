@@ -1,0 +1,20 @@
+<div class="w-50 p-2 text-center" style="margin: 25px auto auto auto">
+  <form [formGroup]="registerForm" (ngSubmit)="onFormSubmit()">
+    <h1 class="h3 mb-3 font-weight-normal">register</h1>
+    <input type="text" class="form-control" placeholder="nickname" formControlName="nick" required autofocus>
+    <input type="email" class="form-control" placeholder="e-mail address" formControlName="email" required>
+    <input type="password" class="form-control" placeholder="password" formControlName="pass" required>
+    <input type="password" class="form-control" placeholder="confirm password" formControlName="pass2" required>
+    <div class="checkbox mb-3">
+      <label>
+        <input type="checkbox" value="remember-me"> Remember me!
+      </label>
+    </div>
+    <button class="btn btn-lg btn-primary btn-block" [disabled]="registerForm.invalid" type="submit">Register</button>
+  </form>
+
+  <p class="mt-5 mb-3 text-muted">&copy; 2019</p>
+
+  <a routerLink="/dash" routerLinkActive="active">go directly to /dash</a>
+
+</div>

@@ -1,9 +1,19 @@
 {
+<<<<<<< HEAD
   "name": "myapp3",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+=======
+  "name": "my-app2",
+  "version": "1.1.0",
+  "scripts": {
+    "ng": "ng",
+    "client": "ng serve",
+    "server": "./node_modules/.bin/nodemon server.js",
+    "start": "npm-run-all -p client server",
+>>>>>>> 772b4145b70838af49e5ee5823a4f26f3ebde4ae
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -15,10 +25,21 @@
     "@angular/common": "~8.2.13",
     "@angular/compiler": "~8.2.13",
     "@angular/core": "~8.2.13",
+<<<<<<< HEAD
+=======
+    "@angular/fire": "^5.2.3",
+>>>>>>> 772b4145b70838af49e5ee5823a4f26f3ebde4ae
     "@angular/forms": "~8.2.13",
     "@angular/platform-browser": "~8.2.13",
     "@angular/platform-browser-dynamic": "~8.2.13",
     "@angular/router": "~8.2.13",
+<<<<<<< HEAD
+=======
+    "bootstrap": "^4.3.1",
+    "express": "^4.17.1",
+    "firebase": "^7.4.0",
+    "morgan": "^1.9.1",
+>>>>>>> 772b4145b70838af49e5ee5823a4f26f3ebde4ae
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
@@ -28,10 +49,28 @@
     "@angular/cli": "~8.3.17",
     "@angular/compiler-cli": "~8.2.13",
     "@angular/language-service": "~8.2.13",
+<<<<<<< HEAD
     "@types/node": "~8.9.4",
     "@types/jasmine": "~3.3.8",
     "@types/jasminewd2": "~2.0.3",
     "codelyzer": "^5.0.0",
+=======
+    "@types/jasmine": "~3.3.8",
+    "@types/jasminewd2": "~2.0.3",
+    "@types/node": "~8.9.4",
+    "@typescript-eslint/eslint-plugin": "^2.6.1",
+    "@typescript-eslint/parser": "^2.6.1",
+    "codelyzer": "^5.0.0",
+    "concurrently": "^5.0.0",
+    "eslint": "^6.1.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-prettier": "^6.7.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^1.7.0",
+>>>>>>> 772b4145b70838af49e5ee5823a4f26f3ebde4ae
     "jasmine-core": "~3.4.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~4.1.0",
@@ -39,8 +78,17 @@
     "karma-coverage-istanbul-reporter": "~2.0.1",
     "karma-jasmine": "~2.0.1",
     "karma-jasmine-html-reporter": "^1.4.0",
+<<<<<<< HEAD
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
+=======
+    "nodemon": "^1.19.4",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^1.19.1",
+    "protractor": "~5.4.0",
+    "ts-node": "~7.0.0",
+    "tsc": "^1.20150623.0",
+>>>>>>> 772b4145b70838af49e5ee5823a4f26f3ebde4ae
     "tslint": "~5.15.0",
     "typescript": "~3.5.3"
   }
