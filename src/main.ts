@@ -8,10 +8,6 @@ if (environment.production) {
   enableProdMode();
 }
 
-<<<<<<< HEAD
-platformBrowserDynamic().bootstrapModule(AppModule)
-=======
 platformBrowserDynamic()
   .bootstrapModule(AppModule)
->>>>>>> 772b4145b70838af49e5ee5823a4f26f3ebde4ae
   .catch(err => console.error(err));

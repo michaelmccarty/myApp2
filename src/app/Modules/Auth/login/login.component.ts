@@ -18,6 +18,8 @@ export class LoginComponent implements OnInit {
   onSubmit(inputEmail: string, inputPass: string) {
     this.user = new User(inputEmail, inputPass);
 
-    this.authService.signIn(this.user);
+    this.authService.signIn(this.user).subscribe(reply => {
+      console.log(reply);
+    });
   }
 }

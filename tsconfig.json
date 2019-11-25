@@ -1,9 +1,5 @@
 {
-<<<<<<< HEAD
-  "compileOnSave": false,
-=======
   "compileOnSave": true,
->>>>>>> 772b4145b70838af49e5ee5823a4f26f3ebde4ae
   "compilerOptions": {
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
@@ -15,18 +11,8 @@
     "moduleResolution": "node",
     "importHelpers": true,
     "target": "es2015",
-<<<<<<< HEAD
-    "typeRoots": [
-      "node_modules/@types"
-    ],
-    "lib": [
-      "es2018",
-      "dom"
-    ]
-=======
     "typeRoots": ["node_modules/@types"],
     "lib": ["es2018", "dom"]
->>>>>>> 772b4145b70838af49e5ee5823a4f26f3ebde4ae
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
