@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../../Models/user.model';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { nextTick } from 'q';
 
 @Injectable({
   providedIn: 'root'
