@@ -17,17 +17,13 @@ export class AuthService {
     return this.http.post('http://localhost:3000/api', toPost);
   }
 
-  registerUser(newUser: User) {
-    this.db.auth.createUserWithEmailAndPassword(newUser.email, newUser.pass).then(reply => {
-      console.log(reply);
-    });
-    return this.http.post('http://localhost:3000/register', newUser);
+  async registerUser(newUser: User) {
+    this.db.auth.createUserWithEmailAndPassword(newUser.email, newUser.pass);
+    //return this.http.post('http://localhost:3000/register', newUser);
   }
 
-  signIn(newUser: User) {
-    this.db.auth.signInWithEmailAndPassword(newUser.email, newUser.pass).then(reply => {
-      console.log(reply);
-    });
-    return this.http.post('http://localhost:3000/login', newUser);
+  async signIn(newUser: User) {
+    this.db.auth.signInWithEmailAndPassword(newUser.email, newUser.pass);
+    //return this.http.post('http://localhost:3000/login', newUser);
   }
 }

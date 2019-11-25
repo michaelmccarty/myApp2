@@ -30,12 +30,10 @@ export class RegisterComponent implements OnInit {
   onFormSubmit() {
     this.router.navigateByUrl('/dash');
 
-    this.authService
-      .registerUser({
-        nick: this.registerForm.get('nick').value,
-        email: this.registerForm.get('email').value,
-        pass: this.registerForm.get('pass').value
-      })
-      .subscribe();
+    this.authService.registerUser({
+      nick: this.registerForm.get('nick').value,
+      email: this.registerForm.get('email').value,
+      pass: this.registerForm.get('pass').value
+    });
   }
 }
