@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../../Models/user.model';
+import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  constructor(private http: HttpClient, private db: AngularFireAuth) {}
+  isAuthed=false;
+  constructor(private http: HttpClient, private db: AngularFireAuth, private router: Router) {}
 
   getData() {
     return this.http.get('http://localhost:3000/api');
@@ -22,9 +24,11 @@ export class AuthService {
       .createUserWithEmailAndPassword(newUser.email, newUser.pass)
       .then(data => {
         console.log('Result: ' + JSON.stringify(data));
+        this.isAuthed=true;
+        this.router.navigate(['dash']);
       })
       .catch(err => {
-        console.log('register error: ' + err.message);
+        console.log('register failed: ' + err.message);
       });
   }
 
@@ -33,9 +37,11 @@ export class AuthService {
       .signInWithEmailAndPassword(newUser.email, newUser.pass)
       .then(data => {
         console.log('Result: ' + JSON.stringify(data));
+        this.isAuthed=true;
+        this.router.navigate(['dash']);
       })
       .catch(err => {
-        console.log('signIn error: ' + err.message);
+        console.log('signIn failed: ' + err.message);
       });
   }
 }
