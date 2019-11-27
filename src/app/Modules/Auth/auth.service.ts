@@ -8,7 +8,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
   providedIn: 'root'
 })
 export class AuthService {
-  isAuthed=false;
+  isAuthed = false;
   constructor(private http: HttpClient, private db: AngularFireAuth, private router: Router) {}
 
   getData() {
@@ -23,9 +23,14 @@ export class AuthService {
     await this.db.auth
       .createUserWithEmailAndPassword(newUser.email, newUser.pass)
       .then(data => {
-        console.log('Result: ' + JSON.stringify(data));
-        this.isAuthed=true;
-        this.router.navigate(['dash']);
+        //console.log('Result: ' + JSON.stringify(data));
+
+        this.db.auth.currentUser.getIdToken().then(reply => {
+          console.log(reply);
+        });
+
+        //this.isAuthed=true;
+        //this.router.navigate(['dash']);
       })
       .catch(err => {
         console.log('register failed: ' + err.message);
@@ -36,9 +41,14 @@ export class AuthService {
     await this.db.auth
       .signInWithEmailAndPassword(newUser.email, newUser.pass)
       .then(data => {
-        console.log('Result: ' + JSON.stringify(data));
-        this.isAuthed=true;
-        this.router.navigate(['dash']);
+        //console.log('Result: ' + JSON.stringify(data));
+
+        this.db.auth.currentUser.getIdToken().then(reply => {
+          console.log(reply);
+        });
+
+        //this.isAuthed=true;
+        //this.router.navigate(['dash']);
       })
       .catch(err => {
         console.log('signIn failed: ' + err.message);
