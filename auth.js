@@ -2,22 +2,39 @@
 // Auth
 // ===============================================================================
 
+const admin = require('firebase-admin');
+const config = require('./config');
+
+admin.initializeApp(config.firebase);
+
 module.exports = function(app) {
   app.post('/login', function(req, res) {
-    const email = req.body.email;
-    const pass = req.body.pass;
+    const token = req.body.token;
 
-    console.log(email, pass);
+    console.log('token received: ' + token);
 
-    res.send({ email: email, pass: pass });
+    admin
+      .auth()
+      .verifyIdToken(token)
+      .then(result => {
+        console.log('verifyIdToken result: ' + JSON.stringify(result));
+      });
+
+    res.send({ valid: 'true' });
   });
+
   app.post('/register', function(req, res) {
-    const nick = req.body.nick;
-    const email = req.body.email;
-    const pass = req.body.pass;
+    const token = req.body.token;
 
-    console.log(nick, email, pass);
+    console.log('token received: ' + token);
 
-    res.send({ nick: nick, email: email, pass: pass });
+    admin
+      .auth()
+      .verifyIdToken(token)
+      .then(result => {
+        console.log('verifyIdToken result: ' + JSON.stringify(result));
+      });
+
+    res.send({ valid: 'true' });
   });
 };

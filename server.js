@@ -1,6 +1,5 @@
 let express = require('express');
 let logger = require('morgan');
-let users = [{ nick: 'test', password: 'test' }];
 
 const HTTP_CONTROL_METHODS = 'GET, POST, OPTIONS';
 

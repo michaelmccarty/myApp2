@@ -26,6 +26,13 @@ export class AuthService {
         //console.log('Result: ' + JSON.stringify(data));
 
         this.db.auth.currentUser.getIdToken().then(reply => {
+          this.http
+            .post('http://localhost:3000/register', { token: reply })
+            .toPromise()
+            .then(response => {
+              console.log(response);
+            });
+
           console.log(reply);
         });
 
@@ -44,6 +51,13 @@ export class AuthService {
         //console.log('Result: ' + JSON.stringify(data));
 
         this.db.auth.currentUser.getIdToken().then(reply => {
+          this.http
+            .post('http://localhost:3000/login', { token: reply })
+            .toPromise()
+            .then(response => {
+              console.log(response);
+            });
+
           console.log(reply);
         });
 
