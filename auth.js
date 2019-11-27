@@ -18,9 +18,12 @@ module.exports = function(app) {
       .verifyIdToken(token)
       .then(result => {
         console.log('verifyIdToken result: ' + JSON.stringify(result));
+        res.send({ valid: 'true' });
+      })
+      .catch(err => {
+        console.log('verifyIdToken error ' + err);
+        res.send({ valid: 'false' });
       });
-
-    res.send({ valid: 'true' });
   });
 
   app.post('/register', function(req, res) {
@@ -33,8 +36,11 @@ module.exports = function(app) {
       .verifyIdToken(token)
       .then(result => {
         console.log('verifyIdToken result: ' + JSON.stringify(result));
+        res.send({ valid: 'true' });
+      })
+      .catch(err => {
+        console.log('verifyIdToken error ' + err);
+        res.send({ valid: 'false' });
       });
-
-    res.send({ valid: 'true' });
   });
 };
