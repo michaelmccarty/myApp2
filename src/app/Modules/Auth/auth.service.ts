@@ -71,6 +71,9 @@ export class AuthService {
 
   isAuthenticated(): boolean {
     //verify that front end token is valid on back end
+
+    console.log('localStorage: ' + localStorage.getItem('user'));
+
     if (localStorage.getItem('user') !== null) {
       this.db.auth.currentUser.getIdToken().then(reply => {
         this.http
