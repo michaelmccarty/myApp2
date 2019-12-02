@@ -80,8 +80,10 @@ export class AuthService {
           .post('http://localhost:3000/login', { token: reply })
           .toPromise()
           .then(response => {
-            if (response['valid'] === 'true') return true;
-            else return false;
+            if (response['valid'] === 'true') {
+              console.log('XXXXXXXXXXXXXXXXXXXX THIS IS TRUE! ');
+              return true;
+            } else return false;
           });
       });
     } else return false;
