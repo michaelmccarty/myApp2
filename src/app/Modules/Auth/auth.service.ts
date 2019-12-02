@@ -69,6 +69,21 @@ export class AuthService {
         });
   }
 
+  isAuthenticated(): boolean {
+    //verify that front end token is valid on back end
+    if (localStorage.getItem('user') !== null) {
+      this.db.auth.currentUser.getIdToken().then(reply => {
+        this.http
+          .post('http://localhost:3000/login', { token: reply })
+          .toPromise()
+          .then(response => {
+            if (response['valid'] === 'true') return true;
+            else return false;
+          });
+      });
+    } else return false;
+  }
+
   registerUser(newUser: User) {
     this.useAuth('register', newUser);
   }
