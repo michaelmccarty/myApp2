@@ -4,9 +4,10 @@ import { DashComponent } from './dash/dash.component';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { NavComponent } from './nav/nav.component';
+import { ChatComponent } from './chat/chat.component';
 
 @NgModule({
-  declarations: [DashComponent, NavComponent],
+  declarations: [DashComponent, NavComponent, ChatComponent],
   imports: [CommonModule, RouterModule, ReactiveFormsModule, FormsModule],
   exports: [DashComponent]
 })
