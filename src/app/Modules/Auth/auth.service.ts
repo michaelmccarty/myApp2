@@ -8,7 +8,6 @@ import { AngularFireAuth } from '@angular/fire/auth';
   providedIn: 'root'
 })
 export class AuthService {
-  isAuthed = false;
   constructor(private http: HttpClient, private db: AngularFireAuth, private router: Router) {}
 
   getData() {
@@ -19,53 +18,70 @@ export class AuthService {
     return this.http.post('http://localhost:3000/api', toPost);
   }
 
-  async registerUser(newUser: User) {
-    await this.db.auth
-      .createUserWithEmailAndPassword(newUser.email, newUser.pass)
-      .then(data => {
-        //console.log('Result: ' + JSON.stringify(data));
-
-        this.db.auth.currentUser.getIdToken().then(reply => {
-          this.http
-            .post('http://localhost:3000/register', { token: reply })
-            .toPromise()
-            .then(response => {
-              console.log(response);
-            });
-
-          console.log(reply);
+  async useAuth(action: string, user?: User) {
+    if (action === 'logout')
+      return await this.db.auth
+        .signOut()
+        .then(reply => {
+          localStorage.removeItem('user');
+          this.router.navigate(['login']);
+        })
+        .catch(err => {
+          console.log('Logout error: ' + JSON.stringify(err));
         });
-
-        //this.isAuthed=true;
-        //this.router.navigate(['dash']);
-      })
-      .catch(err => {
-        console.log('register failed: ' + err.message);
-      });
+    else if (action === 'signIn')
+      return await this.db.auth
+        .signInWithEmailAndPassword(user.email, user.pass)
+        .then(data => {
+          this.db.auth.currentUser.getIdToken().then(reply => {
+            this.http
+              .post('http://localhost:3000/login', { token: reply })
+              .toPromise()
+              .then(response => {
+                if (response['valid'] === 'true') {
+                  localStorage.setItem('user', JSON.stringify(reply));
+                  this.router.navigate(['dash']);
+                }
+              });
+          });
+        })
+        .catch(err => {
+          console.log('signIn failed: ' + err.message);
+        });
+    else if (action === 'register')
+      return await this.db.auth
+        .createUserWithEmailAndPassword(user.email, user.pass)
+        .then(data => {
+          this.db.auth.currentUser.getIdToken().then(reply => {
+            this.http
+              .post('http://localhost:3000/login', { token: reply })
+              .toPromise()
+              .then(response => {
+                if (response['valid'] === 'true') {
+                  localStorage.setItem('user', JSON.stringify(reply));
+                  this.router.navigate(['dash']);
+                }
+              });
+          });
+        })
+        .catch(err => {
+          console.log('registration failed: ' + err.message);
+        });
   }
 
-  async signIn(newUser: User) {
-    await this.db.auth
-      .signInWithEmailAndPassword(newUser.email, newUser.pass)
-      .then(data => {
-        //console.log('Result: ' + JSON.stringify(data));
+  registerUser(newUser: User) {
+    this.useAuth('register', newUser);
+  }
 
-        this.db.auth.currentUser.getIdToken().then(reply => {
-          this.http
-            .post('http://localhost:3000/login', { token: reply })
-            .toPromise()
-            .then(response => {
-              console.log(response);
-            });
+  signIn(user: User) {
+    this.useAuth('signIn', user);
+  }
 
-          console.log(reply);
-        });
+  logout() {
+    this.useAuth('logout');
+  }
 
-        //this.isAuthed=true;
-        //this.router.navigate(['dash']);
-      })
-      .catch(err => {
-        console.log('signIn failed: ' + err.message);
-      });
+  loguser() {
+    console.log(localStorage.getItem('user'));
   }
 }
