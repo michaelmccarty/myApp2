@@ -1,7 +1,7 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 config.js
 /src/environments
-
+.vscode
 # compiled output
 /dist
 /tmp
