@@ -8,4 +8,8 @@ export class ChatComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
+
+  onSubmit() {
+    alert('hi');
+  }
 }

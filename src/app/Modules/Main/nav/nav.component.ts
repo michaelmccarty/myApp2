@@ -15,7 +15,7 @@ export class NavComponent implements OnInit {
   }
   async testisAuthenticated() {
     this.authService.isAuthenticated().then(result => {
-      console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa: ' + result);
+      console.log('Logged in: ' + result);
     });
   }
 }
