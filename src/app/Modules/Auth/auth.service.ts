@@ -69,25 +69,45 @@ export class AuthService {
         });
   }
 
-  isAuthenticated(): boolean {
+  //this is my async isAuthenticated version
+  async isAuthenticated(): Promise<any> {
     //verify that front end token is valid on back end
 
     console.log('localStorage: ' + localStorage.getItem('user'));
 
-    if (localStorage.getItem('user') !== null) {
-      this.db.auth.currentUser.getIdToken().then(reply => {
-        this.http
-          .post('http://localhost:3000/login', { token: reply })
-          .toPromise()
-          .then(response => {
-            if (response['valid'] === 'true') {
-              console.log('XXXXXXXXXXXXXXXXXXXX THIS IS TRUE! ');
-              return true;
-            } else return false;
-          });
-      });
-    } else return false;
+    //if not found in localStorage then user must not be authenticated
+    if (localStorage.getItem('user') === null) return false;
+    else {
+      let idToken = await this.db.auth.currentUser.getIdToken();
+      let response = await this.http
+        .post('http://localhost:3000/login', { token: idToken })
+        .toPromise();
+
+      if (response['valid'] === 'true') return true;
+      else return false;
+    }
   }
+
+  // // this is my Promise isAuthenticated version
+  // isAuthenticated(): boolean {
+  //   //verify that front end token is valid on back end
+
+  //   console.log('localStorage: ' + localStorage.getItem('user'));
+
+  //   if (localStorage.getItem('user') !== null) {
+  //     this.db.auth.currentUser.getIdToken().then(reply => {
+  //       this.http
+  //         .post('http://localhost:3000/login', { token: reply })
+  //         .toPromise()
+  //         .then(response => {
+  //           if (response['valid'] === 'true') {
+  //             console.log('XXXXXXXXXXXXXXXXXXXX THIS IS TRUE! ');
+  //             return true;
+  //           } else return false;
+  //         });
+  //     });
+  //   } else return false;
+  // }
 
   registerUser(newUser: User) {
     this.useAuth('register', newUser);

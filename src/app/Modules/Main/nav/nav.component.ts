@@ -13,8 +13,9 @@ export class NavComponent implements OnInit {
   logout() {
     this.authService.logout();
   }
-  testisAuthenticated() {
-    if (this.authService.isAuthenticated()) alert('yup');
-    else alert('nope');
+  async testisAuthenticated() {
+    this.authService.isAuthenticated().then(result => {
+      console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa: ' + result);
+    });
   }
 }
