@@ -1,12 +1,14 @@
 let express = require('express');
+let app = express();
 let logger = require('morgan');
+let http = require('http').Server(app);
+let socketio = require('socket.io')(http);
+
+socketio.origins('*:*');
 
 const HTTP_CONTROL_METHODS = 'GET, POST, OPTIONS';
 
 let PORT = process.env.PORT || 3000;
-
-// Initialize Express
-let app = express();
 
 app.use((req, res, next) => {
   //ENABLE CORS
@@ -28,6 +30,13 @@ app.use(express.json());
 app.use(express.static('dist'));
 
 require('./auth')(app);
+
+//////////////////////////////
+//  socket.io
+//////////////////////////////
+socketio.on('connection', socket => {
+  socket.emit('socket.id', socket.id);
+});
 
 // Start the server
 app.listen(PORT, function() {
