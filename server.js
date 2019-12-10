@@ -2,7 +2,7 @@ let express = require('express');
 let app = express();
 let logger = require('morgan');
 let http = require('http').Server(app);
-let socketio = require('socket.io')(http);
+let io = require('socket.io')(http);
 
 const HTTP_CONTROL_METHODS = 'GET, POST, OPTIONS';
 
@@ -33,7 +33,7 @@ require('./auth')(app);
 //////////////////////////////
 //  socket.io
 //////////////////////////////
-socketio.on('connection', socket => {
+io.on('connection', socket => {
   console.log('connected.');
 });
 
