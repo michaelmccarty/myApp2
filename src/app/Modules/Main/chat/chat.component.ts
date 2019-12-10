@@ -12,11 +12,9 @@ export class ChatComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    this.socket = io.connect('http://localhost:3000');
-    this.socket.on('message-received', (msg: any) => {
-      this.messages.push(msg);
-      console.log(msg);
-      console.log(this.messages);
+    this.socket = io('http://localhost:3000');
+    this.socket.on('connect', () => {
+      console.log('connected');
     });
   }
 
