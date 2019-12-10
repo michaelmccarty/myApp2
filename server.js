@@ -4,8 +4,6 @@ let logger = require('morgan');
 let http = require('http').Server(app);
 let socketio = require('socket.io')(http);
 
-socketio.origins('http://localhost:4200');
-
 const HTTP_CONTROL_METHODS = 'GET, POST, OPTIONS';
 
 let PORT = process.env.PORT || 3000;
@@ -36,7 +34,7 @@ require('./auth')(app);
 //  socket.io
 //////////////////////////////
 socketio.on('connection', socket => {
-  socket.emit('socket.id', socket.id);
+  console.log('connected.');
 });
 
 // Start the server
