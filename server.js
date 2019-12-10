@@ -34,7 +34,9 @@ require('./auth')(app);
 //  socket.io
 //////////////////////////////
 io.on('connection', socket => {
-  console.log('connected.');
+  socket.on('message', msg => {
+    console.log('message: ' + msg);
+  });
 });
 
 // Start the server
