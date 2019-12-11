@@ -1,4 +1,6 @@
-/// <reference path="node_modules\@types\socket.io-client\index.d.ts" />
+// /// <reference path="../../../../../node_modules/@types/socket.io-client/index.d.ts" />
+// above line is required to get my typescript stuff working
+
 import * as io from 'socket.io-client';
 import { Component, OnInit } from '@angular/core';
 
@@ -7,13 +9,13 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './chat.component.html'
 })
 export class ChatComponent implements OnInit {
-  socket: SocketIOClient;
+  socket: SocketIOClient.Socket;
   messages: string[];
 
   constructor() {}
 
   ngOnInit() {
-    this.socket = io('http://localhost:3000').connect;
+    this.socket = io('http://localhost:3000');
     // this.socket.on('connect', () => {
     //   console.log('connected');
     // });
