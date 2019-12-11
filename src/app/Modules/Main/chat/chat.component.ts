@@ -1,5 +1,5 @@
 // /// <reference path="../../../../../node_modules/@types/socket.io-client/index.d.ts" />
-// above line is required to get my typescript stuff working
+// above line must be first, may be required to get typings working
 
 import * as io from 'socket.io-client';
 import { Component, OnInit } from '@angular/core';
