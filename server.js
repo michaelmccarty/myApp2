@@ -1,8 +1,9 @@
 let express = require('express');
 let app = express();
 let logger = require('morgan');
-let http = require('http').Server(app);
-let io = require('socket.io')(http);
+let server = require('http').Server(app);
+let socket = require('socket.io');
+let io = socket(server);
 
 const HTTP_CONTROL_METHODS = 'GET, POST, OPTIONS';
 
@@ -34,12 +35,16 @@ require('./auth')(app);
 //  socket.io
 //////////////////////////////
 io.on('connection', socket => {
-  socket.on('message', msg => {
-    console.log('message: ' + msg);
+  socket.on('message', data => {
+    console.log(data);
   });
+  socket.emit('message', 'hello');
+  console.log('emitted hello');
 });
 
 // Start the server
-app.listen(PORT, function() {
+server.listen(PORT, function() {
   console.log('App running on port ' + PORT + '!');
 });
+
+console.log(io);

@@ -2,7 +2,7 @@
 // above line must be first, may be required to get typings working
 
 import * as io from 'socket.io-client';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 
 @Component({
   selector: 'app-chat',
@@ -14,10 +14,12 @@ export class ChatComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  ngAfterViewInit() {
     this.socket = io('http://localhost:3000');
-    // this.socket.on('connect', () => {
-    //   console.log('connected');
+    // this.socket.on('message', data => {
+    //   console.log('message: ' + data);
     // });
   }
 
