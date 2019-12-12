@@ -5,7 +5,7 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
   selector: 'app-chat',
   templateUrl: './chat.component.html'
 })
-export class ChatComponent implements OnInit {
+export class ChatComponent implements OnInit, AfterViewInit {
   socket: SocketIOClient.Socket;
   messages: string[];
 
