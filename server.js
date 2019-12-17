@@ -35,11 +35,12 @@ require('./auth')(app);
 //  socket.io
 //////////////////////////////
 io.on('connection', socket => {
+
+  console.log(socket.id+" has connected.");
+
   socket.on('message', data => {
-    console.log(data);
+    console.log(data+" has been sent from "+socket.id);
   });
-  socket.emit('message', 'hello');
-  console.log('emitted hello');
 });
 
 // Start the server

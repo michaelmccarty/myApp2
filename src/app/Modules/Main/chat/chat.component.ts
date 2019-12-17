@@ -23,7 +23,7 @@ export class ChatComponent implements OnInit {
     // });
   }
 
-  onSubmit() {
-    this.socket.emit('message', 'hi');
+  onSubmit(message: string) {
+    this.socket.emit('message', this.socket.id+": "+message);
   }
 }
