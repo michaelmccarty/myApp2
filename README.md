@@ -2,9 +2,6 @@
 
 ## This is just a lil app living its best life... don't worry too much about it.
 
-> npm i  
-> npm start
-
 > Please create your own config.js file in the root directory and populate it like this:
 ```
   const config = {};
@@ -38,3 +35,7 @@
     }
   };
 ```
+
+> npm i  
+> npm start
+
