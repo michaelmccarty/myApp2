@@ -6,7 +6,7 @@
 > npm start
 
 > Please create your own config.js file in the root directory and populate it like this:
-
+<code>
 const config = {};
 
 config.firebase = {
@@ -20,10 +20,11 @@ config.firebase = {
 };
 
 module.exports = config;
-
+</code>
 
 > then create environments.ts inside src/environments/ (also create this directory) and populate it with this:
 
+<code>
 export const environment = {
   production: false,
   firebase: {
@@ -36,3 +37,4 @@ export const environment = {
     appId: 'xxxxxxxxxxxxxxxxxxxxxxxxx'
   }
 };
+</code>
