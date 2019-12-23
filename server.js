@@ -35,16 +35,15 @@ require('./auth')(app);
 //  socket.io
 //////////////////////////////
 io.on('connection', socket => {
-
-  console.log(socket.id+" has connected.");
+  console.log(socket.id + ' has connected.');
 
   socket.on('message', data => {
-    console.log(data+" has been sent from "+socket.id);
+    console.log(data + ' has been sent from ' + socket.id);
   });
 
-  socket.on("disconnect", data =>{
-    console.log(socket.id+" has disconnected.");
-  })
+  socket.on('disconnect', data => {
+    console.log(socket.id + ' has disconnected.');
+  });
 });
 
 // Start the server
