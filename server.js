@@ -39,6 +39,7 @@ io.on('connection', socket => {
 
   socket.on('message', data => {
     console.log(data + ' has been sent from ' + socket.id);
+    io.emit('message', data + ' has been sent from ' + socket.id);
   });
 
   socket.on('disconnect', data => {

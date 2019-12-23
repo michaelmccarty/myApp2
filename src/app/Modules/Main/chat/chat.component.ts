@@ -15,12 +15,12 @@ export class ChatComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     this.socket = io('http://localhost:3000');
-    // this.socket.on('message', data => {
-    //   console.log('message: ' + data);
-    // });
+    this.socket.on('message', data => {
+      console.log('message: ' + data);
+    });
   }
 
   onSubmit(message: string) {
-    this.socket.emit('message', this.socket.id+": "+message);
+    this.socket.emit('message', this.socket.id + ': ' + message);
   }
 }
