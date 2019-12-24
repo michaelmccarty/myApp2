@@ -2,7 +2,7 @@
   "name": "my-app2",
   "version": "1.1.0",
   "engines": {
-    "node": "12.13.0"
+    "node": "~12.13.0"
   },
   "scripts": {
     "ng": "ng",
@@ -12,7 +12,11 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "postinstall": "ng build --aot",
+    "preinstall": "npm start"
+
+
   },
   "private": true,
   "dependencies": {
