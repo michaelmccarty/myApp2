@@ -22,9 +22,9 @@ export class ChatEffects {
   ) { }
 
   @Effect()
-  login$: Observable<Action> = this.actions$.pipe(
-    ofType(UserActions.LOGIN),
-    switchMap((action: UserActions.LogInAction) => {
+  messageSent$: Observable<Action> = this.actions$.pipe(
+    ofType(ChatActions.MESSAGE_SENT),
+    switchMap((action: ChatActions.MessageSentAction) => {
       this.authService.checkAppVersion();
 
       const req = {
@@ -163,13 +163,3 @@ export class ChatEffects {
     })
   );
 }
-
-// // graveyard
-
-//     // @Effect({ dispatch: false })
-//     // public languageCodeLocalStorage$: Observable<any> = this.actions$.pipe(
-//     //     ofType(UserActions.LOGIN_SUCCESS),
-//     //     tap((action) => {
-//     //         localStorage.setItem('languageCode', action.payload.response.languageCode);
-//     //     })
-//     // );
