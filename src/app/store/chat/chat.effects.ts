@@ -10,7 +10,7 @@ import * as ChatActions from './chat.actions';
 import { Action, Store } from '@ngrx/store';
 import { switchMap,  map,  mergeMap,  catchError,  withLatestFrom } from 'rxjs/operators';
 import { Router } from '@angular/router';
-//import { AuthService } from '../../Modules/Auth/auth.service';
+//import { AuthService } from '../../Modules/auth/auth.service';
 
 @Injectable()
 export class ChatEffects {
