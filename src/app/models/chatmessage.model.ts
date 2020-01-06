@@ -1,6 +1,6 @@
 export class ChatMessage {
   id: number;
-  msg: string;
   user: string;
+  msg: string;
   timestamp: Date;
 }

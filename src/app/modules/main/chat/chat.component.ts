@@ -1,5 +1,6 @@
 import * as io from 'socket.io-client';
 import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { ChatService } from "../chat.service";
 
 @Component({
   selector: 'app-chat',
@@ -9,7 +10,7 @@ export class ChatComponent implements OnInit, AfterViewInit {
   socket: SocketIOClient.Socket;
   messages: string[];
 
-  constructor() {}
+  constructor(private chatService: ChatService) {}
 
   ngOnInit() {}
 

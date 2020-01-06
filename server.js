@@ -30,6 +30,7 @@ app.use(express.json());
 app.use(express.static('dist'));
 
 require('./auth')(app);
+require('./chat')(app);
 
 //////////////////////////////
 //  socket.io
@@ -51,5 +52,3 @@ io.on('connection', socket => {
 server.listen(PORT, function() {
   console.log('App running on port ' + PORT + '!');
 });
-
-console.log(io);

@@ -17,7 +17,4 @@ export type All =
   // | LogInSuccessAction
   // | LogInFailureAction
   // | ResetSessionAction
-  // | LogOutSuccessAction
-  // | UpdatePasswordAction
-  // | ChooseClientAction
-  // | ChooseClientSuccessAction;
+  // | LogOutSuccessAction;;

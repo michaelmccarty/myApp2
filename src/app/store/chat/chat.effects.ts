@@ -10,7 +10,8 @@ import * as ChatActions from './chat.actions';
 import { Action, Store } from '@ngrx/store';
 import { switchMap,  map,  mergeMap,  catchError,  withLatestFrom } from 'rxjs/operators';
 import { Router } from '@angular/router';
-//import { AuthService } from '../../Modules/auth/auth.service';
+import { ChatService } from '../../modules/main/chat.service';
+//import { AuthService } from '../../modules/auth/auth.service';
 
 @Injectable()
 export class ChatEffects {
@@ -28,9 +29,10 @@ export class ChatEffects {
       this.authService.checkAppVersion();
 
       const req = {
-        username: action.payload.username,
-        password: action.payload.password,
-        captcha: action.payload.captcha
+        id: action.payload.id,
+        user: action.payload.user,
+        msg: action.payload.msg,
+        timestamp: action.payload.timestamp,
       };
       return this.apiService.login(req).pipe(
         // If successful, dispatch success action with result
