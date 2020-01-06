@@ -1,4 +1,4 @@
-# MyApp2 1.3.0
+# MyApp2 1
 
 ## This is just a lil app living its best life... don't worry too much about it.
 
