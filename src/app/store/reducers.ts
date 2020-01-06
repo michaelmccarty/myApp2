@@ -6,5 +6,5 @@ export interface State {
 }
 
 export const reducers: ActionReducerMap<State> = {
-  chatState: ChatReducer.reducer
+  chatState: ChatReducer.chatReducer
 };
