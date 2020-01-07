@@ -2,12 +2,13 @@
 // Chat
 // ===============================================================================
 
-const config = require('./config');
-
 module.exports = function(app, io, chatMessages) {
-  app.post('/chat', function(req, res) {});
-
-
+  app.post('/chat', function(req, res) {
+    if (req) {
+      res.send({ valid: 'true' });
+      console.log("sent response from /chat");
+    }
+  });
 
   //////////////////////////////
   //  socket.io

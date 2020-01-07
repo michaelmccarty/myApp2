@@ -39,20 +39,10 @@ export class ChatEffects {
         map(response => {
 
           console.log(response);
-          if (response.isTempPassword === 'Y') {
+          if (response.valid === 'true') {
             return {
-              type: UserActions.UPDATE_PASSWORD,
-              payload: { response: response, admin: action.payload.admin }
-            };
-          } else if (response.authenticated) {
-            return {
-              type: UserActions.LOGIN_SUCCESS,
-              payload: { response: response, admin: action.payload.admin }
-            };
-          } else {
-            return {
-              type: UserActions.LOGIN_FAILURE,
-              payload: { response: response, admin: action.payload.admin }
+              type: ChatActions.SEND_MESSAGE_SUCCESS,
+              payload: { response: response, chatMessage: action.payload }
             };
           }
         }),
@@ -60,7 +50,7 @@ export class ChatEffects {
         catchError(error => {
           console.log(error);
           return of({
-            type: UserActions.LOGIN_FAILURE,
+            type: ChatActions.SEND_MESSAGE_FAILURE,
             payload: error
           });
         })
@@ -70,7 +60,7 @@ export class ChatEffects {
     catchError(error => {
       console.log(error);
       return of({
-        type: UserActions.LOGIN_FAILURE,
+        type: ChatActions.SEND_MESSAGE_FAILURE,
         payload: error
       });
     })
