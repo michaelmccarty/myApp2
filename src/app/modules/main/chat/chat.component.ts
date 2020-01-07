@@ -41,14 +41,5 @@ export class ChatComponent implements OnInit {
 
     this.chatService.sendMessage(req);
 
-
-
-
-    // example:
-    // this.store$
-    // .pipe(select(store => store.userState.systemDefaults))
-    // .subscribe((data: SystemDefaults) => {
-    //   this.data = data;
-    // });
   }
 }
