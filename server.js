@@ -32,7 +32,7 @@ app.use(express.json());
 app.use(express.static('dist'));
 
 require('./auth')(app);
-require('./chat')(app)(io, chatMessages);
+require('./chat')(app, io, chatMessages);
 
 // Start the server
 server.listen(PORT, function() {
