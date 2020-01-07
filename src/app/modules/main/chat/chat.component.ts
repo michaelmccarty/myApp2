@@ -1,27 +1,54 @@
 import * as io from 'socket.io-client';
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ChatService } from "../chat.service";
+import { Store, select } from '@ngrx/store';
+import * as fromRoot from '../../../store/reducers';
+import { ChatMessage } from 'src/app/models/chatmessage.model';
+
 
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.component.html'
 })
-export class ChatComponent implements OnInit, AfterViewInit {
+export class ChatComponent implements OnInit {
   socket: SocketIOClient.Socket;
-  messages: string[];
+  chatMessages: ChatMessage[];
+  chatMessage: string;
 
-  constructor(private chatService: ChatService) {}
+  constructor(private store$: Store<fromRoot.State>, private chatService: ChatService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
 
-  ngAfterViewInit() {
     this.socket = io('http://localhost:3000');
     this.socket.on('message', data => {
       console.log('message: ' + data);
     });
+
+
+    //retrieve all messages from the store
+    this.store$
+    .pipe(select(store => store.chatState.chatMessages))
+    .subscribe((data: ChatMessage[]) => {
+      this.chatMessages = data;
+    });
+
   }
 
-  onSubmit(message: string) {
-    this.socket.emit('message', this.socket.id + ': ' + message);
+  onSubmit() {
+    this.socket.emit('message', this.socket.id + ': ' + this.chatMessage);
+
+    let req:ChatMessage = new ChatMessage(23423,"sjobbs", this.chatMessage, new Date());
+
+    this.chatService.sendMessage(req);
+
+
+
+
+    // example:
+    // this.store$
+    // .pipe(select(store => store.userState.systemDefaults))
+    // .subscribe((data: SystemDefaults) => {
+    //   this.data = data;
+    // });
   }
 }

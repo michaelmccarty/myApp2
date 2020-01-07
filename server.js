@@ -5,6 +5,8 @@ let server = require('http').Server(app);
 let socket = require('socket.io');
 let io = socket(server);
 
+let chatMessages = [{ id: '35233', user: "steve", msg: "hello world", timestamp: "10-10-10:30:32:23" }];
+
 const HTTP_CONTROL_METHODS = 'GET, POST, OPTIONS';
 
 let PORT = process.env.PORT || 3000;
@@ -30,23 +32,7 @@ app.use(express.json());
 app.use(express.static('dist'));
 
 require('./auth')(app);
-require('./chat')(app);
-
-//////////////////////////////
-//  socket.io
-//////////////////////////////
-io.on('connection', socket => {
-  console.log(socket.id + ' has connected.');
-
-  socket.on('message', data => {
-    console.log(data + ' has been sent from ' + socket.id);
-    io.emit('message', data + ' has been sent from ' + socket.id);
-  });
-
-  socket.on('disconnect', data => {
-    console.log(socket.id + ' has disconnected.');
-  });
-});
+require('./chat')(app)(io, chatMessages);
 
 // Start the server
 server.listen(PORT, function() {

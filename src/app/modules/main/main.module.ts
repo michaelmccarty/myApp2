@@ -8,10 +8,11 @@ import { ChatComponent } from './chat/chat.component';
 import { ChatlogComponent } from './chatlog/chatlog.component';
 import { MessageComponent } from './message/message.component';
 import { ChatService } from './chat.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [DashComponent, NavComponent, ChatComponent, ChatlogComponent, MessageComponent],
-  imports: [CommonModule, RouterModule, ReactiveFormsModule, FormsModule],
+  imports: [CommonModule, RouterModule, ReactiveFormsModule, HttpClientModule, FormsModule],
   providers: [ChatService],
   exports: [DashComponent]
 })

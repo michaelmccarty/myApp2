@@ -2,17 +2,25 @@ import { Action } from '@ngrx/store';
 import { ChatMessage } from '../../models/chatmessage.model';
 
 ///////////////
-export const MESSAGE_SENT = 'MESSAGE_SENT';
+export const SEND_MESSAGE = 'SEND_MESSAGE';
+export const SEND_MESSAGE_SUCCESS = 'SEND_MESSAGE_SUCCESS';
 
 
-export class MessageSentAction implements Action {
-  readonly type = MESSAGE_SENT;
+export class SendMessageAction implements Action {
+  readonly type = SEND_MESSAGE;
+
+  constructor(public payload: ChatMessage ) {}
+}
+
+export class SendMessageSuccessAction implements Action {
+  readonly type = SEND_MESSAGE_SUCCESS;
 
   constructor(public payload: ChatMessage ) {}
 }
 
 export type All =
-  | MessageSentAction;
+  | SendMessageAction
+  | SendMessageSuccessAction;
   // | LogOutAction
   // | LogInSuccessAction
   // | LogInFailureAction

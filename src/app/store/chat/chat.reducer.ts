@@ -11,7 +11,12 @@ const InitialState: State = {
 
 export function chatReducer(state = InitialState, action: ChatActions.All): State {
   switch (action.type) {
-    case ChatActions.MESSAGE_SENT: {
+    case ChatActions.SEND_MESSAGE: {
+      return {
+        ...state
+      };
+    }
+    case ChatActions.SEND_MESSAGE_SUCCESS: {
       return {
         ...state,
         chatMessages: [...state.chatMessages, action.payload],
