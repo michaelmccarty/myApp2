@@ -5,7 +5,7 @@ let server = require('http').Server(app);
 let socket = require('socket.io');
 let io = socket(server);
 
-let chatMessages = [{ id: '35233', user: "steve", msg: "hello world", timestamp: "10-10-10:30:32:23" }];
+let chatMessages = [{ id: '35233', user: "steve", msg: "hello world", timestamp: new Date() }];
 
 const HTTP_CONTROL_METHODS = 'GET, POST, OPTIONS';
 
