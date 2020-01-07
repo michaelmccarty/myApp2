@@ -42,7 +42,7 @@ export class ChatEffects {
           if (response.valid === 'true') {
             return {
               type: ChatActions.SEND_MESSAGE_SUCCESS,
-              payload: { response: response, chatMessage: action.payload }
+              payload: { /**response: response,*/ chatMessage: action.payload }
             };
           }
         }),

@@ -29,4 +29,4 @@ export type All = SendMessageAction | SendMessageSuccessAction | SendMessageFail
 // | LogInSuccessAction
 // | LogInFailureAction
 // | ResetSessionAction
-// | LogOutSuccessAction;;
+// | LogOutSuccessAction;
