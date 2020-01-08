@@ -19,7 +19,7 @@
   module.exports = config;
 ```
 
-> then create environments.ts inside src/environments/ (also create this directory) and populate it with this:
+> then create environment.ts inside src/environments/ (also create this directory) and populate it with this:
 
 ```
   export const environment = {
