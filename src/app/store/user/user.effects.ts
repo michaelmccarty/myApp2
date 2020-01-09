@@ -24,9 +24,9 @@ export class UserEffects {
   ) { }
 
   @Effect()
-  sendMessage$: Observable<Action> = this.actions$.pipe(
-    ofType(UserActions.SEND_MESSAGE),
-    switchMap((action: UserActions.SendMessageAction) => {
+  login$: Observable<Action> = this.actions$.pipe(
+    ofType(UserActions.LOGIN),
+    switchMap((action: UserActions.LoginAction) => {
 
       const req = {
         id: action.payload.id,
@@ -41,7 +41,7 @@ export class UserEffects {
           console.log(response);
           if (response.valid === 'true') {
             return {
-              type: UserActions.SEND_MESSAGE_SUCCESS,
+              type: UserActions.LOGIN_SUCCESS,
               payload: { /**response: response,*/ chatMessage: action.payload }
             };
           }
@@ -50,7 +50,7 @@ export class UserEffects {
         catchError(error => {
           console.log(error);
           return of({
-            type: UserActions.SEND_MESSAGE_FAILURE,
+            type: UserActions.LOGIN_FAILURE,
             payload: error
           });
         })
@@ -60,7 +60,7 @@ export class UserEffects {
     catchError(error => {
       console.log(error);
       return of({
-        type: UserActions.SEND_MESSAGE_FAILURE,
+        type: UserActions.LOGIN_FAILURE,
         payload: error
       });
     })

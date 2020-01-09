@@ -1,25 +1,26 @@
 import * as UserActions from './user.actions';
-import { ChatMessage } from "../../models/chatmessage.model";
+import { User } from 'src/app/models/user.model';
 
 export interface State {
   authorized: boolean;
+  user: User;
 }
 
 const InitialState: State = {
-  authorized: false
+  authorized: false,
+  user: undefined
 };
 
 export function userReducer(state = InitialState, action: UserActions.All): State {
   switch (action.type) {
-    case UserActions.SEND_MESSAGE: {
+    case UserActions.LOGIN: {
       return {
         ...state
       };
     }
-    case UserActions.SEND_MESSAGE_SUCCESS: {
+    case UserActions.LOGIN_SUCCESS: {
       return {
-        ...state,
-        chatMessages: [...state.chatMessages, action.payload],
+        ...state
       };
     }
 
