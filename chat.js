@@ -4,7 +4,7 @@
 
 module.exports = function(app, io, chatMessages) {
   app.post('/chat', function(req, res) {
-    if (req) {
+    if (req.chatMessage) {
       res.send({ valid: 'true', chatMessages:chatMessages });
       console.log("sent response from /chat");
     }
