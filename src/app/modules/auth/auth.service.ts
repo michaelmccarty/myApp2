@@ -10,14 +10,6 @@ import { AngularFireAuth } from '@angular/fire/auth';
 export class AuthService {
   constructor(private http: HttpClient, private db: AngularFireAuth, private router: Router) {}
 
-  getData() {
-    return this.http.get('http://localhost:3000/api');
-  }
-
-  postData(toPost: {}) {
-    return this.http.post('http://localhost:3000/api', toPost);
-  }
-
   async useAuth(action: string, user?: User) {
     if (action === 'logout')
       return await this.db.auth
