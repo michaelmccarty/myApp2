@@ -37,13 +37,14 @@ export class ChatComponent implements OnInit {
 
   onSubmit() {
 
-    this.store$.dispatch(new ChatActions.SendMessageAction(this.chatMessage));
 
     this.socket.emit('message', this.socket.id + ': ' + this.chatMessage);
 
     let req:ChatMessage = new ChatMessage(23423,"sjobbs", this.chatMessage, new Date());
 
-    this.chatService.sendMessage(req);
+    this.store$.dispatch(new ChatActions.SendMessageAction(req));
+
+    //this.chatService.sendMessage(req);
 
   }
 }
