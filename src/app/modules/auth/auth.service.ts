@@ -34,6 +34,10 @@ export class AuthService {
               .toPromise()
               .then(response => {
                 if (response['valid'] === 'true') {
+
+                  /////////////// this should go to store  ↓
+
+
                   localStorage.setItem('user', JSON.stringify(reply));
                   this.router.navigate(['dash']);
                 }
