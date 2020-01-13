@@ -12,7 +12,6 @@ export class ChatService {
 
   constructor(private store$: Store<fromRoot.State>, private http: HttpClient) { }
 
-
   sendMessage(req: ChatMessage):Observable<any>{
     return this.http.post('http://localhost:3000/chat', req);
   }

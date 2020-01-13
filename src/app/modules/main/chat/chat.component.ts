@@ -4,6 +4,7 @@ import { ChatService } from "../chat.service";
 import { Store, select } from '@ngrx/store';
 import * as fromRoot from '../../../store/reducers';
 import { ChatMessage } from 'src/app/models/chatmessage.model';
+import * as ChatActions from '../../../store/chat/chat.actions';
 
 
 @Component({
@@ -35,6 +36,9 @@ export class ChatComponent implements OnInit {
   }
 
   onSubmit() {
+
+    this.store$.dispatch(new ChatActions.SendMessageAction(this.chatMessage));
+
     this.socket.emit('message', this.socket.id + ': ' + this.chatMessage);
 
     let req:ChatMessage = new ChatMessage(23423,"sjobbs", this.chatMessage, new Date());
