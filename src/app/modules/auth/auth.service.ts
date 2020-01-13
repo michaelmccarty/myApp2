@@ -3,12 +3,15 @@ import { HttpClient } from '@angular/common/http';
 import { User } from '../../models/user.model';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { Store, select } from '@ngrx/store';
+import * as fromRoot from '../../store/reducers';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  constructor(private http: HttpClient, private db: AngularFireAuth, private router: Router) {}
+  constructor(private store$: Store<fromRoot.State>, private http: HttpClient, private db: AngularFireAuth, private router: Router) {}
 
   async useAuth(action: string, user?: User) {
     if (action === 'logout')
