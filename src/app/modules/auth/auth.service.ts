@@ -35,7 +35,7 @@ export class AuthService {
               .then(response => {
                 if (response['valid'] === 'true') {
 
-                  /////////////// this should go to store  ↓
+                  /////////////// this should go to store  ↓ 
 
 
                   localStorage.setItem('user', JSON.stringify(reply));
