@@ -28,7 +28,7 @@
     "@types/socket.io": "^2.1.4",
     "bootstrap": "^4.3.1",
     "caniuse-lite": "^1.0.30001019",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "firebase": "^7.4.0",
     "firebase-admin": "^8.8.0",
     "morgan": "^1.9.1",
